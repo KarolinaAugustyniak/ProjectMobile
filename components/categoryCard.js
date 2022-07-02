@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
     },
     category__text: {
         padding: 16,
+        fontSize: 14,
+        width: 160,
+        flexWrap: 'wrap',
     },
     category__img: {
         borderRadius: 4,
