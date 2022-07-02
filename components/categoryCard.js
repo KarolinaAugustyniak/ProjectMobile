@@ -5,13 +5,14 @@ import { StyleSheet, Image, Text, View, ActivityIndicator, SafeAreaView } from '
 const CategoryCard = props => {
     return (
         <View style={styles.category}>
-            <Image source={{
-                width: 160,
-                height: 100,
-                uri: props.image
-            }}
+            <Image style={styles.category__img}
+                source={{
+                    width: 160,
+                    height: 100,
+                    uri: props.image
+                }}
             />
-            <Text style={styles.text}>
+            <Text style={styles.category__text}>
                 {props.title}
             </Text>
         </View>
@@ -21,12 +22,15 @@ const CategoryCard = props => {
 const styles = StyleSheet.create({
     category: {
         backgroundColor: '#fff',
-        paddingTop: 8,
-        marginBottom: 20,
+        padding: 8,
         borderRadius: 4,
+        marginTop: 16,
     },
-    text: {
+    category__text: {
         padding: 16,
+    },
+    category__img: {
+        borderRadius: 4,
     }
 });
 
