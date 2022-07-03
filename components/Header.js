@@ -16,8 +16,6 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: '#fff',
         padding: 20,
-        // borderBottomLeftRadius: 40,
-        // borderBottomRightRadius: 40,
         width: '100%',
         paddingTop: 60,
         shadowColor: "#000",

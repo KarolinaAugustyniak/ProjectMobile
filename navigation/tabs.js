@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Home from '../screens/Home';
 import ChooseCategory from '../screens/ChooseCategory';
 import ChooseMeal from '../screens/ChooseMeal';
+import MealScreen from '../screens/MealScreen';
 
 import reactDom from 'react-dom';
 
@@ -31,9 +32,15 @@ const Tabs = () => {
                 ),
             }} />
 
-
             <Tab.Screen name="ChooseMeal" component={ChooseMeal} options={{
-                tabBarLabel: 'ChooseMeal',
+                tabBarLabel: 'Choose  Meal',
+                tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="food" color={color} size={size} />
+                ),
+            }} />
+
+            <Tab.Screen name="MealScreen" component={MealScreen} options={{
+                tabBarLabel: 'Meal',
                 tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="food" color={color} size={size} />
                 ),

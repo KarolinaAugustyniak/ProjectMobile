@@ -7,19 +7,17 @@ import { Header, FocusedStatusBar } from '../components';
 
 const Home = ({ navigation }) => {
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.home}>
             {/* <Header title="Home page" /> */}
-            <View style={styles.home}>
+            <View >
                 <Text style={styles.home__title}>Projekt {"\n"}Programowanie urządzeń mobilnych</Text>
                 <Text style={styles.home__subtitle} >Grupa 4IIZ/2020/TIM-SP02</Text>
                 <View style={styles.home__creators}>
-                    <Text>Autorzy:</Text>
                     <Text>Karolina Augustyniak w64043</Text>
                     <Text>Norbert Guzy w64084</Text>
                 </View>
             </View>
             <View>
-                <Text>Wybierz kategorię:</Text>
                 <Button
                     title="Choose category"
                     onPress={() => navigation.navigate('ChooseCategory')}
@@ -38,6 +36,7 @@ const styles = StyleSheet.create({
     },
     home: {
         textAlign: 'center',
+        padding: 16,
     },
     home__title: {
         fontSize: 20,
@@ -55,6 +54,7 @@ const styles = StyleSheet.create({
     },
     home__creators: {
         margin: 40,
+        marginBottom: 100,
     }
 
 });

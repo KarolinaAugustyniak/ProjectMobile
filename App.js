@@ -8,11 +8,14 @@ import ChooseCategory from './screens/ChooseCategory';
 import ChooseMeal from './screens/ChooseMeal';
 import Tabs from './navigation/tabs';
 
+const Stack = createStackNavigator();
+
 const App = () => {
   return (
     <NavigationContainer>
       <Tabs />
     </NavigationContainer>
+
   )
 }
 
