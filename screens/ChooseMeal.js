@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Image, Text, View, TextInput, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
 import CategoryCard from '../components/categoryCard';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-const foodURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
 
-const ChooseMeal = () => {
+const ChooseMeal = ({ route, navigation }) => {
+    const { itemName } = route.params;
+    const choosenCategory = itemName;
+    const foodURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + choosenCategory;
 
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
@@ -20,6 +24,7 @@ const ChooseMeal = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text style={styles.info}>Choosen category: {itemName}</Text>
             {isLoading ? (
                 <ActivityIndicator />
             ) : (
@@ -29,7 +34,7 @@ const ChooseMeal = () => {
                     numColumns={2}
                     data={data}
                     keyExtractor={({ idMeal }, index) => idMeal}
-                    renderItem={({ item }) => <CategoryCard title={item.strMeal} image={item.strMealThumb} />}
+                    renderItem={({ item }) => <CategoryCard title={item.strMeal} image={item.strMealThumb} navigateTo="MealScreen" />}
                 />
             )}
         </SafeAreaView>
@@ -46,6 +51,11 @@ const styles = StyleSheet.create({
     },
     categories__list: {
         width: '100%',
+    },
+    info: {
+        margin: 10,
+        marginTop: 18,
+        fontSize: 18
     },
 });
 

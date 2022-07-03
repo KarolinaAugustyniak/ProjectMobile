@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Image, Text, View, TextInput, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
 import CategoryCard from '../components/categoryCard';
 import Header from '../components/Header';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const foodURL = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
-const ChooseCategory = () => {
+const ChooseCategory = ({ navigation }) => {
 
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
@@ -20,6 +22,7 @@ const ChooseCategory = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+
             {/* <Header title="Choose category" /> */}
             {isLoading ? (
                 <ActivityIndicator />
@@ -30,7 +33,7 @@ const ChooseCategory = () => {
                     numColumns={2}
                     data={data}
                     keyExtractor={({ idCategory }, index) => idCategory}
-                    renderItem={({ item }) => <CategoryCard title={item.strCategory} image={item.strCategoryThumb} />}
+                    renderItem={({ item }) => <CategoryCard title={item.strCategory} image={item.strCategoryThumb} navigateTo="ChooseMeal" />}
                 />
             )}
         </SafeAreaView>

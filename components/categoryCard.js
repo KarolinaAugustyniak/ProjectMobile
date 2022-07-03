@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, Image, Text, View, ActivityIndicator, SafeAreaView } from 'react-native';
+import { StyleSheet, Button, Image, Text, View, ActivityIndicator, SafeAreaView } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import ChooseMeal from '../screens/ChooseMeal';
 
 const CategoryCard = props => {
+    const navigation = useNavigation();
     return (
         <View style={styles.category}>
             <Image style={styles.category__img}
@@ -15,6 +19,10 @@ const CategoryCard = props => {
             <Text style={styles.category__text}>
                 {props.title}
             </Text>
+            <Button
+                title="See more"
+                onPress={() => navigation.navigate(props.navigateTo, { itemName: props.title })}
+            />
         </View>
     );
 };

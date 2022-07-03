@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Image, Text, View, TextInput, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { StyleSheet, Button, Image, Text, View, TextInput, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Header, FocusedStatusBar } from '../components';
 
-const Home = () => {
+const Home = ({ navigation }) => {
     return (
         <SafeAreaView>
             {/* <Header title="Home page" /> */}
@@ -17,7 +18,14 @@ const Home = () => {
                     <Text>Norbert Guzy w64084</Text>
                 </View>
             </View>
-            {/* <FocusedStatusBar style={styles.statusbar} /> */}
+            <View>
+                <Text>Wybierz kategorię:</Text>
+                <Button
+                    title="Choose category"
+                    onPress={() => navigation.navigate('ChooseCategory')}
+                />
+            </View>
+            <FocusedStatusBar style={styles.statusbar} />
         </SafeAreaView>
     );
 };
@@ -26,7 +34,7 @@ const Home = () => {
 
 const styles = StyleSheet.create({
     statusbar: {
-        backgroundColor: '#b695f0',
+        backgroundColor: '#FFB800',
     },
     home: {
         textAlign: 'center',
